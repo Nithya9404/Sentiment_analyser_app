@@ -1,0 +1,46 @@
+{
+    "lexicon": 1,
+    "id": "com.atproto.server.createAccount",
+    "defs": {
+      "main": {
+        "type": "procedure",
+        "description": "Create an account.",
+        "input": {
+          "encoding": "application/json",
+          "schema": {
+            "type": "object",
+            "required": ["email", "password"],
+            "properties": {
+              "email": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+              },
+              "password": {
+                "type": "string",
+                "minLength": 6
+              }
+            }
+          }
+        },
+        "output": {
+          "encoding": "application/json",
+          "schema": {
+            "type": "object",
+            "required": ["accessJwt", "refreshJwt", "handle", "did"],
+            "properties": {
+              "accessJwt": { "type": "string" },
+              "refreshJwt": { "type": "string" },
+              "handle": { "type": "string", "format": "handle" },
+              "did": { "type": "string", "format": "did" }
+            }
+          }
+        },
+        "errors": [
+          { "name": "InvalidEmail" },
+          { "name": "InvalidPassword" }
+        ]
+      }
+    }
+  }
+  
+  

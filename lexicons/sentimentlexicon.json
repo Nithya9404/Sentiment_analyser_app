@@ -1,0 +1,36 @@
+{
+    "lexicon": 1,
+    "defs": {
+      "main": {
+        "type": "query",
+        "description": "Find the sentiment of the word",
+        "parameters": {
+          "type": "params",
+          "properties": {
+            "term": { "type": "string" },
+            "limit": { "type": "string", "default": "50" }
+          }
+        },
+        "output": {
+          "encoding": "application/json",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "actors": {
+                "type": "array"
+              }
+            }
+          }
+        },
+        "words": {
+          "good": "positive",
+          "bad": "negative",
+          "happy": "positive",
+          "sad": "negative",
+          "great" :"positive",
+          "fine" :"neutral"
+        }
+      }
+    }
+  }
+  
